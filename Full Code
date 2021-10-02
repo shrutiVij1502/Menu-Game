@@ -127,7 +127,7 @@ if myhost =="remote":
 	
 
 while True:
-	y=subprocess.getstatusoutput('zenity --entry --title="enter your choice" --text="enter 1 : to date\nenter 2 : to cal\nenter 3 : to ls \nenter 4 : to mkdir\nenter 5 : to exit" 2>/dev/null')
+	y=subprocess.getstatusoutput('zenity --entry --title="enter your choice" --text="enter 1 : for fun\nenter 2 : to play quiz \nenter 3 : to ls \nenter 4 : to mkdir\nenter 5 : to exit" 2>/dev/null')
 	y1 = int(y[1])
 	
 	ch = y1
