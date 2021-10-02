@@ -2,7 +2,6 @@ import os
 import time
 import subprocess
 
-
 def shruti():
 	import os
 	import subprocess
@@ -106,14 +105,61 @@ def Riddhi():
 
 
 
-print ("\t\t\tWelcome to Our Very First project :)")
-z = os.system('tput setaf 3 | zenity --question --title="LETs START" --text="Select What you want to run" --ok-label="FUN ARENA" --cancel-label="QUIZ"')
 
-if z == 256:
-	os.system('zenity --info --title="QUIZ" --text="Welcome to the quiz, so lets start" --ok-label="Continue"')
-	Riddhi()
 
+
+os.system('tput setaf 2 | zenity --info --title="welcome" --no-wrap  --text="welcome to my menu"')
+
+
+x= os.system('zenity --question --text="where u want to run ur program local/remote:" --no-wrap --ok-label="local" --cancel-label="remote"')
+print(x)
+if x == 256 :
+	x = "remote"
 else:
-	print ('zenity --info --title="QUIZ" --text="Welcome to the quiz, so lets start" --ok-label="Continue"')
-	shruti()
+	
+	x = "local"
+
+
+myhost = x
+print(myhost)
+if myhost =="remote":
+	remote_ip=subprocess.getoutput('zenity --entry --title=remote --text="Enter ur remote host ip:"')
+	
+
+while True:
+	y=subprocess.getstatusoutput('zenity --entry --title="enter your choice" --text="enter 1 : to date\nenter 2 : to cal\nenter 3 : to ls \nenter 4 : to mkdir\nenter 5 : to exit" 2>/dev/null')
+	y1 = int(y[1])
+	
+	ch = y1
+	if myhost=="local":
+		if  int(ch) ==1:
+			shruti()
+		elif int(ch) ==2:
+			riddhi()
+		elif int(ch) ==3:
+			os.system('zenity --info --no-wrap --text="$(ls)" --title=ls')
+		elif int(ch)==4:
+			os.system('zenity --info --no-wrap --text="mkdir" --title=mkdir')
+		elif int(ch) ==5:
+			exit()
+		else:
+			print("not supported")		
+			
+	if myhost=="remote":
+		if  ch == 1:
+			os.system("ssh {} date".format(remote_ip))
+		elif int(ch) ==2:
+			os.system("ssh {} cal".format(remote_ip))
+		elif int(ch) ==3:
+			os.system("ssh {} ls".format(remote_ip))
+		elif int(ch) ==4:
+			os.system("ssh {} mkdir".format(remote_ip))
+		elif int(ch) ==5:
+			os.system("ssh {} exit".format(remote_ip))
+		else:
+			print("not supported")
+	input("print enter to cont...")
+	os.system("clear")
+
+
 
