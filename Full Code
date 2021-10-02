@@ -135,7 +135,7 @@ while True:
 		if  int(ch) ==1:
 			shruti()
 		elif int(ch) ==2:
-			riddhi()
+			Riddhi()
 		elif int(ch) ==3:
 			os.system('zenity --info --no-wrap --text="$(ls)" --title=ls')
 		elif int(ch)==4:
@@ -160,6 +160,3 @@ while True:
 			print("not supported")
 	input("print enter to cont...")
 	os.system("clear")
-
-
-
