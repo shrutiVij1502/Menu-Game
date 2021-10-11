@@ -12,8 +12,8 @@ def shruti():
 	print('\t\t\t\tFUN ARENA')
 	os.system('tput setaf 7')
 
-	os.system('zenity --info --title="FUN ARINA" --text="welcome to menu"')
-	x = os.system('tput setaf 3 | zenity --question --title="FUN ARINA" --text="are you sure to run this?" --ok-label="YES" --cancel-label="NO"')
+	os.system('zenity --info --title="FUN ARENA" --text="welcome to menu"')
+	x = os.system('tput setaf 3 | zenity --question --title="FUN ARENA" --text="are you sure to run this?" --ok-label="YES" --cancel-label="NO"')
 
 	if x==256:
 		os.system('zenity --info --title="EXIT" --text="Are you sure to exit?" --ok-label="exit"')
@@ -38,6 +38,25 @@ def shruti():
 			os.system('fortune')
 		if a==4:
 			exit()
+def mailshruti():
+	import os
+	import subprocess
+	import smtplib
+	s = smtplib.SMTP('smtp.gmail.com', 587)
+	s.starttls()
+	os.system('tput setaf 3')
+	print("\t\t\t WELCOME TO THE PERSONAL MAIL SERVICES")
+	os.system('tput setaf 7')
+	os.system('zenity --warning --title="Email" --text="Before Start Make sure you have enabled the less security on your mail"')
+	os.system('')
+
+	Mail, Password, sentmail, message =subprocess.getoutput('zenity --forms --title="Email Service" --add-entry="Username" --add-password="Password" --add-entry="Mail ID to send Msg" --add-entry="Message" 2>/dev/null').split('|')
+
+	s.login(Mail, Password)
+	s.sendmail(Mail, sentmail, message)
+	os.system('espeak-ng -f "Your Message has been Sent, Please check your inbox"')
+	os.system('zenity --info --title="Email Service" --text="Yayy Your Message has been Sent, Please check your inbox"')
+	s.quit()
 def Riddhi():
 
 	fa=0
@@ -132,7 +151,7 @@ if myhost =="remote":
 	
 
 while True:
-	y=subprocess.getstatusoutput('zenity --entry --title="enter your choice" --text="enter 1 : for fun\nenter 2 : to play quiz \nenter 3 : to read story \nenter 4 : to see fibonacci series\nenter 5 : to exit" 2>/dev/null')
+	y=subprocess.getstatusoutput('zenity --entry --title="enter your choice" --text="Enter 1 : for fun\nEnter 2 : To play Quiz \nEnter 3 : To read story \nenter 4 : To see fibonacci series\nEnter 5 : Mail Service \nEnter 6 : Exit " 2>/dev/null')
 	y1 = int(y[1])
 	
 	ch = y1
@@ -145,7 +164,9 @@ while True:
 			os.system('zenity --info --no-wrap --text={} --title="story" 2>dev/null'.format(story_xyz()))
 		elif int(ch)==4:
 			os.system('zenity --info --no-wrap --text="{}" --title="Fibonacci series"  2>/dev/null'.format(fib()))
-		elif int(ch) ==5:
+		elif int(ch)==5:
+			mailshruti()			
+		elif int(ch) ==6:
 			exit()
 		else:
 			print("not supported")		
