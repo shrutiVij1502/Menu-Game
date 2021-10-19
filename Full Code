@@ -240,7 +240,7 @@ if myhost =="remote":
 	
 
 while True:
-	y=subprocess.getstatusoutput('zenity --entry --title="enter your choice" --text="Enter 1 : for fun\nEnter 2 : To play Quiz \nEnter 3 : To read story \nenter 4 : To see fibonacci series\nEnter 5 : Mail Service \nEnter 6 : Exit " 2>/dev/null')
+	y=subprocess.getstatusoutput('zenity --entry --title="enter your choice" --text="Enter 1 : for fun\nEnter 2 : To play Quiz \nEnter 3 : To read story \nenter 4 : To see fibonacci series\nEnter 5 : Mail Service \nEnter 6 : To play game \nEnter 7 : Exit " 2>/dev/null')
 	y1 = int(y[1])
 	
 	ch = y1
@@ -256,6 +256,8 @@ while True:
 		elif int(ch)==5:
 			mailshruti()			
 		elif int(ch) ==6:
+			game_by_kundan()
+		elif int(ch) ==7:
 			exit()
 		else:
 			print("not supported")		
