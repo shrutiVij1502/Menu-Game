@@ -231,10 +231,34 @@ myhost = x
 print(myhost)
 if myhost =="remote":
 	remote_ip=subprocess.getoutput('zenity --entry --title=remote --text="Enter ur remote host ip:"')
+
+
+def guessNumber():
+	guess = 0
+	r = random.randint(0,99)
+	while True:
+		guess +=1
+		y=subprocess.getstatusoutput('zenity --entry  --text="Guess number between 0 to 99 " 2>/dev/null')
+		n= int(y[1])
+		if int(n)>=0 and int(n)<=99:
+			if r>n:
+				os.system('zenity --info --no-wrap --text="You guessed small"')
+				
+			elif r<n:
+				os.system('zenity --info --no-wrap --text="You guessed high"')
+				
+			else:
+				os.system('zenity --info --no-wrap --text="You guessed correct"')
+				
+				os.system('zenity --info --no-wrap --text="Your guesses are {} "'.format(guess))
+				
+				break	
+		else:
+			os.system('zenity --info --no-wrap --text="wrong input"')
 	
 
 while True:
-	y=subprocess.getstatusoutput('zenity --entry --title="enter your choice" --text="Enter 1 : for fun\nEnter 2 : To play Quiz \nEnter 3 : To read story \nenter 4 : To see fibonacci series\nEnter 5 : Mail Service \nEnter 6 : To play game \nEnter 7 : Exit " 2>/dev/null')
+	y=subprocess.getstatusoutput('zenity --entry --title="enter your choice" --text="Enter 1 : for fun\nEnter 2 : To play Quiz \nEnter 3 : To read story \nEnter 4 : To see fibonacci series\nEnter 5 : Mail Service \nEnter 6 : To play game \nEnter 7 : To Play Guess the Number game\nEnter 8 : Exit" 2>/dev/null')
 	y1 = int(y[1])
 	
 	ch = y1
@@ -252,6 +276,8 @@ while True:
 		elif int(ch) ==6:
 			game_by_kundan()
 		elif int(ch) ==7:
+			guessNumber()
+		elif int(ch) ==8:
 			exit()
 		else:
 			print("not supported")		
