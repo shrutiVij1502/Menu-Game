@@ -123,7 +123,7 @@ def game_by_kundan():
 	while True:
 		user_input = Choose_Option()
 		comp_choice = Computer_Option()
-
+		
 		if user_input == "r" :
 			if comp_choice == "r":
 				os.system('zenity --info --no-wrap --text="You chose rock. The computer chose rock. You tied."')
@@ -215,23 +215,6 @@ def fib():
 
 
 
-os.system('zenity --info --title="welcome" --no-wrap  --text="welcome to my menu"')
-
-
-x= os.system('zenity --question --text="where u want to run ur program local/remote:" --no-wrap --ok-label="local" --cancel-label="remote"')
-print(x)
-if x == 256 :
-	x = "remote"
-else:
-	
-	x = "local"
-
-
-myhost = x
-print(myhost)
-if myhost =="remote":
-	remote_ip=subprocess.getoutput('zenity --entry --title=remote --text="Enter ur remote host ip:"')
-
 
 def guessNumber():
 	guess = 0
@@ -255,7 +238,23 @@ def guessNumber():
 				break	
 		else:
 			os.system('zenity --info --no-wrap --text="wrong input"')
+
+os.system('zenity --info --title="welcome" --no-wrap  --text="welcome to my menu"')
+
+
+x= os.system('zenity --question --text="where u want to run ur program local/remote:" --no-wrap --ok-label="local" --cancel-label="remote"')
+print(x)
+if x == 256 :
+	x = "remote"
+else:
 	
+	x = "local"
+
+
+myhost = x
+print(myhost)
+if myhost =="remote":
+	remote_ip=subprocess.getoutput('zenity --entry --title=remote --text="Enter ur remote host ip:"')
 
 while True:
 	y=subprocess.getstatusoutput('zenity --entry --title="enter your choice" --text="Enter 1 : for fun\nEnter 2 : To play Quiz \nEnter 3 : To read story \nEnter 4 : To see fibonacci series\nEnter 5 : Mail Service \nEnter 6 : To play game \nEnter 7 : To Play Guess the Number game\nEnter 8 : Exit" 2>/dev/null')
