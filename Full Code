@@ -118,6 +118,7 @@ def game_by_kundan():
 		else:
             		comp_choice = "s"
 		return comp_choice
+	
 
 
 	while True:
@@ -239,6 +240,16 @@ def guessNumber():
 		else:
 			os.system('zenity --info --no-wrap --text="wrong input"')
 
+def launch_Container():
+		ans = os.system('zenity --question --no-wrap --text="Do you have a Docker install?"')
+		if ans== 256:
+			os.system('zenity --info --no-wrap --text="use below command to install docker :\n yum install docker-ce" ')
+		else:
+			os.system('docker run -it centos')
+
+
+
+
 os.system('zenity --info --title="welcome" --no-wrap  --text="welcome to my menu"')
 
 
@@ -257,7 +268,7 @@ if myhost =="remote":
 	remote_ip=subprocess.getoutput('zenity --entry --title=remote --text="Enter ur remote host ip:"')
 
 while True:
-	y=subprocess.getstatusoutput('zenity --entry --title="enter your choice" --text="Enter 1 : for fun\nEnter 2 : To play Quiz \nEnter 3 : To read story \nEnter 4 : To see fibonacci series\nEnter 5 : Mail Service \nEnter 6 : To play game \nEnter 7 : To Play Guess the Number game\nEnter 8 : Exit" 2>/dev/null')
+	y=subprocess.getstatusoutput('zenity --entry --title="enter your choice" --text="Enter 1 : for fun\nEnter 2 : To play Quiz \nEnter 3 : To read story \nEnter 4 : To see fibonacci series\nEnter 5 : Mail Service \nEnter 6 : To play game \nEnter 7 : To Play Guess the Number game\nEnter 8: To launch a container\nEnter 9 : Exit" 2>/dev/null')
 	y1 = int(y[1])
 	
 	ch = y1
@@ -277,6 +288,8 @@ while True:
 		elif int(ch) ==7:
 			guessNumber()
 		elif int(ch) ==8:
+			launch_Container()
+		elif int(ch) ==9:
 			exit()
 		else:
 			print("not supported")		
