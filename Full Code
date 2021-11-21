@@ -3,7 +3,7 @@ import time
 import subprocess
 import random
 
-def shruti():
+def Fun_Arena():
 	import os
 	import subprocess
 	import time
@@ -37,8 +37,8 @@ def shruti():
 		if a==3:
 			os.system('fortune')
 		if a==4:
-			exit()
-def mailshruti():
+			break
+def Mail_Services():
 	import os
 	import subprocess
 	import smtplib
@@ -57,7 +57,46 @@ def mailshruti():
 	os.system('espeak-ng -f "Your Message has been Sent, Please check your inbox"')
 	os.system('zenity --info --title="Email Service" --text="Yayy Your Message has been Sent, Please check your inbox"')
 	s.quit()
-def Riddhi():
+
+
+def Story_Telling():
+
+    
+    readername=subprocess.getoutput('zenity --entry --text="enter your name" 2>/dev/null')
+
+    sentence_starter = ['Once upon a time' , 'About a 100 years ago' , 'Today at the evening' , 'Few days back', 'Around 20BC ago']
+
+    charecter = ['there lived a man named tatya vinchuk' , 'there lived a queen' , 'there lived a farmer' , 'there lived a king']
+
+    time = ['At night' , 'At the morning' , 'Around 6 pm' , 'One day' , 'At full moon']
+
+    story_plot = ['he was passing by' , 'he was going on a date' , 'he was attending a meeting' , 'he was going for a picnic']
+
+    place = [ 'to a hotel.' , 'to the hills.' , 'to a garden.' , 'to a office.']
+
+    second_charecter = ['he saw a kid', 'he saw an old man passing by' , ' he saw his mother and her friend passing by']
+
+    age = ['who seemed around 80' , 'who seemed in her 20s' , 'who was around 6-7 years old']
+
+    work = ['cleaning the sewers' , 'digging a well on roadside' , ' playing football' , 'searching for something']
+	
+    os.system('zenity --info --title="story" --text="hello {}"'.format(readername))
+    os.system('zenity --info --title="story" --ok-label="continue" --no-wrap --text=" {} {} "'.format(random.choice(sentence_starter) ,random.choice(charecter)  ))
+    os.system('zenity --info --title="story" --no-wrap  --ok-label="finish" --text=" {} {} {} \n{} {} {}"'.format(random.choice(time), random.choice(story_plot) , random.choice(place) , random.choice(second_charecter) , random.choice(age) , random.choice(work)))
+
+
+
+def Fibonacci_Series():
+	x=subprocess.getstatusoutput('zenity --entry --text="enter number" 2>/dev/null')
+	n=int(x[1])
+	seq=[0,1]
+	for i in range(2,n+1):
+		next_num = seq[i-1] +seq[i-2]
+		seq.append(next_num)
+	return seq
+	
+
+def Quiz():
 
 	fa=0
 	co=0
@@ -87,7 +126,9 @@ def Riddhi():
 
 	ans = os.system('zenity --info  --title="Result" --text="Correct answer = {} \n wrong answer= {}" --no-wrap'.format(co,fa))
 
-def game_by_kundan():
+
+
+def RockPaperScissor_Game():
 	import random
 	import os 
 	import subprocess
@@ -170,46 +211,6 @@ def game_by_kundan():
 	
 		if x==256:
 			break
-		
-
-def story_xyz():
-
-    
-    readername=subprocess.getoutput('zenity --entry --text="enter your name" 2>/dev/null')
-
-    
-
-    sentence_starter = ['Once upon a time' , 'About a 100 years ago' , 'Today at the evening' , 'Few days back', 'Around 20BC ago']
-
-    charecter = ['there lived a man named tatya vinchuk' , 'there lived a queen' , 'there lived a farmer' , 'there lived a king']
-
-    time = ['At night' , 'At the morning' , 'Around 6 pm' , 'One day' , 'At full moon']
-
-    story_plot = ['he was passing by' , 'he was going on a date' , 'he was attending a meeting' , 'he was going for a picnic']
-
-    place = [ 'to a hotel.' , 'to the hills.' , 'to a garden.' , 'to a office.']
-
-    second_charecter = ['he saw a kid', 'he saw an old man passing by' , ' he saw his mother and her friend passing by']
-
-    age = ['who seemed around 80' , 'who seemed in her 20s' , 'who was around 6-7 years old']
-
-    work = ['cleaning the sewers' , 'digging a well on roadside' , ' playing football' , 'searching for something']
-	
-    os.system('zenity --info --title="story" --text="hello {}"'.format(readername))
-    os.system('zenity --info --title="story" --ok-label="continue" --no-wrap --text=" {} {} "'.format(random.choice(sentence_starter) ,random.choice(charecter)  ))
-    os.system('zenity --info --title="story" --no-wrap  --ok-label="finish" --text=" {} {} {} \n{} {} {}"'.format(random.choice(time), random.choice(story_plot) , random.choice(place) , random.choice(second_charecter) , random.choice(age) , random.choice(work)))
-
-
-
-def fib():
-	x=subprocess.getstatusoutput('zenity --entry --text="enter number" 2>/dev/null')
-	n=int(x[1])
-	seq=[0,1]
-	for i in range(2,n+1):
-		next_num = seq[i-1] +seq[i-2]
-		seq.append(next_num)
-	return seq
-	
 
 
 
@@ -268,23 +269,23 @@ if myhost =="remote":
 	remote_ip=subprocess.getoutput('zenity --entry --title=remote --text="Enter ur remote host ip:"')
 
 while True:
-	y=subprocess.getstatusoutput('zenity --entry --title="enter your choice" --text="Enter 1 : for fun\nEnter 2 : To play Quiz \nEnter 3 : To read story \nEnter 4 : To see fibonacci series\nEnter 5 : Mail Service \nEnter 6 : To play game \nEnter 7 : To Play Guess the Number game\nEnter 8: To launch a container\nEnter 9 : Exit" 2>/dev/null')
+	y=subprocess.getstatusoutput('zenity --entry --title="enter your choice" --text="Enter 1 : for fun\nEnter 2 : Mail Service \nEnter 3 : To read story \nEnter 4 : To see fibonacci series\nEnter 5 : To play Quiz \nEnter 6 : To play game \nEnter 7 : To Play Guess the Number game\nEnter 8: To launch a container\nEnter 9 : Exit" 2>/dev/null')
 	y1 = int(y[1])
 	
 	ch = y1
 	if myhost=="local":
 		if  int(ch) ==1:
-			shruti()
+			Fun_Arena()
 		elif int(ch) ==2:
-			Riddhi()
+			Mail_Services()
 		elif int(ch) ==3:
-			os.system('zenity --info --no-wrap --text={} --title="story" 2>dev/null'.format(story_xyz()))
+			os.system('zenity --info --no-wrap --text={} --title="story" 2>dev/null'.format(Story_Telling()))
 		elif int(ch)==4:
-			os.system('zenity --info --no-wrap --text="{}" --title="Fibonacci series"  2>/dev/null'.format(fib()))
+			os.system('zenity --info --no-wrap --text="{}" --title="Fibonacci series"  2>/dev/null'.format(Fibonacci_Series()))
 		elif int(ch)==5:
-			mailshruti()			
+			Quiz()			
 		elif int(ch) ==6:
-			game_by_kundan()
+			RockPaperScissor_Game()
 		elif int(ch) ==7:
 			guessNumber()
 		elif int(ch) ==8:
@@ -300,10 +301,317 @@ while True:
 		elif int(ch) ==2:
 			os.system("ssh {} cal".format(remote_ip))
 		elif int(ch) ==3:
-			os.system("ssh {} ls".format(remote_ip))
-		elif int(ch) ==4:
 			os.system("ssh {} mkdir".format(remote_ip))
-		elif int(ch) ==5:
+		elif int(ch) ==4:
+			os.system("ssh {} exit".format(remote_ip))
+		else:
+			print("not supported")
+	input("print enter to cont...")
+	os.system("clear")import os
+import time
+import subprocess
+import random
+
+def Fun_Arena():
+	import os
+	import subprocess
+	import time
+
+	os.system('tput setaf 3')
+	print('\t\t\t\tFUN ARENA')
+	os.system('tput setaf 7')
+
+	os.system('zenity --info --title="FUN ARENA" --text="welcome to menu"')
+	x = os.system('tput setaf 3 | zenity --question --title="FUN ARENA" --text="are you sure to run this?" --ok-label="YES" --cancel-label="NO"')
+
+	if x==256:
+		os.system('zenity --info --title="EXIT" --text="Are you sure to exit?" --ok-label="exit"')
+		exit()
+
+	else:
+		print ("""
+	Press 1: For Train Ride
+	Press 2: For Reading Cow's Mind
+	Press 3: To See Fortune
+	Press 4: Exit""")
+
+	while True:
+
+		a= int(input("Time to Enter Your Choice: "))
+
+		if a==1:
+			os.system('sl')
+		if a==2:
+			os.system('fortune | cowsay')
+		if a==3:
+			os.system('fortune')
+		if a==4:
+			break
+def Mail_Services():
+	import os
+	import subprocess
+	import smtplib
+	s = smtplib.SMTP('smtp.gmail.com', 587)
+	s.starttls()
+	os.system('tput setaf 3')
+	print("\t\t\t WELCOME TO THE PERSONAL MAIL SERVICES")
+	os.system('tput setaf 7')
+	os.system('zenity --warning --title="Email" --text="Before Start Make sure you have enabled the less security on your mail"')
+	os.system('')
+
+	Mail, Password, sentmail, message =subprocess.getoutput('zenity --forms --title="Email Service" --add-entry="Username" --add-password="Password" --add-entry="Mail ID to send Msg" --add-entry="Message" 2>/dev/null').split('|')
+
+	s.login(Mail, Password)
+	s.sendmail(Mail, sentmail, message)
+	os.system('espeak-ng -f "Your Message has been Sent, Please check your inbox"')
+	os.system('zenity --info --title="Email Service" --text="Yayy Your Message has been Sent, Please check your inbox"')
+	s.quit()
+
+
+def Story_Telling():
+
+    
+    readername=subprocess.getoutput('zenity --entry --text="enter your name" 2>/dev/null')
+
+    sentence_starter = ['Once upon a time' , 'About a 100 years ago' , 'Today at the evening' , 'Few days back', 'Around 20BC ago']
+
+    charecter = ['there lived a man named tatya vinchuk' , 'there lived a queen' , 'there lived a farmer' , 'there lived a king']
+
+    time = ['At night' , 'At the morning' , 'Around 6 pm' , 'One day' , 'At full moon']
+
+    story_plot = ['he was passing by' , 'he was going on a date' , 'he was attending a meeting' , 'he was going for a picnic']
+
+    place = [ 'to a hotel.' , 'to the hills.' , 'to a garden.' , 'to a office.']
+
+    second_charecter = ['he saw a kid', 'he saw an old man passing by' , ' he saw his mother and her friend passing by']
+
+    age = ['who seemed around 80' , 'who seemed in her 20s' , 'who was around 6-7 years old']
+
+    work = ['cleaning the sewers' , 'digging a well on roadside' , ' playing football' , 'searching for something']
+	
+    os.system('zenity --info --title="story" --text="hello {}"'.format(readername))
+    os.system('zenity --info --title="story" --ok-label="continue" --no-wrap --text=" {} {} "'.format(random.choice(sentence_starter) ,random.choice(charecter)  ))
+    os.system('zenity --info --title="story" --no-wrap  --ok-label="finish" --text=" {} {} {} \n{} {} {}"'.format(random.choice(time), random.choice(story_plot) , random.choice(place) , random.choice(second_charecter) , random.choice(age) , random.choice(work)))
+
+
+
+def Fibonacci_Series():
+	x=subprocess.getstatusoutput('zenity --entry --text="enter number" 2>/dev/null')
+	n=int(x[1])
+	seq=[0,1]
+	for i in range(2,n+1):
+		next_num = seq[i-1] +seq[i-2]
+		seq.append(next_num)
+	return seq
+	
+
+def Quiz():
+
+	fa=0
+	co=0
+	x1 = os.system('zenity --title="quiz form" --username --password')
+	x= os.system('zenity --info --title="rules for Quiz"  --text="->you have to choose between true or false \n->Time is 5 minute\n->you have to allow webcam \n->make sure that your face is visible" --no-wrap --ok-label="start" ')
+
+
+	a=os.system('zenity --question --title="Question 1" --text="Binary Search Data is in unordered list." --no-wrap --ok-label="False" --cancel-label="True"')
+	if a == 256:
+		fa+=1
+		print("True")
+		
+	else:
+		print("False")
+		co+=1
+	b=os.system('zenity --question --title="Question 2" --text="Linear search data is in unordered list"  --no-wrap --ok-label="False" --cancel-label="True"')
+
+	if b == 256:
+		co+=1
+		print("True")
+	else:
+		fa+=1
+		print("False")
+
+	c =os.system('zenity  --info --icon-name="emblem-default" --title="Finish" --text="Successfully submitted"')
+	time.sleep(1)
+
+	ans = os.system('zenity --info  --title="Result" --text="Correct answer = {} \n wrong answer= {}" --no-wrap'.format(co,fa))
+
+
+
+def RockPaperScissor_Game():
+	import random
+	import os 
+	import subprocess
+	comp_wins = 0
+	player_wins = 0
+	
+	def Choose_Option():
+		user_input =subprocess.getoutput('zenity --entry --title="Your Choice" --text="enter Rock ,paper or scissors" 2>/dev/null')
+		print(user_input)
+		if user_input in ["Rock", "rock", "r", "R"]:
+			user_input = "r"
+		elif user_input in ["Paper", "paper", "p", "P"]:
+			user_input = "p"
+		elif user_input in ["Scissors", "scissors", "s", "S"]:
+			user_input = "s"
+		else:
+			os.system('zenity --info --no-wrap --text="Wrong Input"')
+			Choose_Option()
+		return user_input
+
+
+	def Computer_Option():
+		comp_choice = random.randint(1, 3)
+		if comp_choice == 1:
+            		comp_choice = "r"
+		elif comp_choice == 2:
+            		comp_choice = "p"
+		else:
+            		comp_choice = "s"
+		return comp_choice
+	
+
+
+	while True:
+		user_input = Choose_Option()
+		comp_choice = Computer_Option()
+		
+		if user_input == "r" :
+			if comp_choice == "r":
+				os.system('zenity --info --no-wrap --text="You chose rock. The computer chose rock. You tied."')
+
+			elif comp_choice == "p":
+				os.system('zenity --info --no-wrap --text="You chose rock. The computer chose paper. You lose."')
+				comp_wins += 1
+
+			elif comp_choice == "s":
+				os.system('zenity --info --no-wrap --text="You chose rock. The computer chose scissors. You win."')
+				player_wins += 1
+
+		elif user_input == "p":
+			if comp_choice == "r":
+				os.system('zenity --info --no-wrap --text="You chose paper. The computer chose rock. You win."')
+                
+				player_wins += 1
+
+			elif comp_choice == "p":
+				os.system('zenity --info --no-wrap --text="You chose paper. The computer chose paper. You tied."')
+                
+			elif comp_choice == "s":
+				os.system('zenity --info --no-wrap --text="You chose paper. The computer chose scissors. You lose."')
+                
+				comp_wins += 1
+
+		elif user_input == "s":
+			if comp_choice == "r":
+				os.system('zenity --info --no-wrap --text="You chose scissors. The computer chose rock. You lose."')
+                
+				comp_wins += 1
+
+			elif comp_choice == "p":
+				os.system('zenity --info --no-wrap --text="You chose scissors. The computer chose paper. You win."')
+				player_wins += 1
+
+			elif comp_choice == "s":
+				os.system('zenity --info --no-wrap --text="You chose scissors. The computer chose scissors. You tied."')
+
+		os.system('zenity --info --title="result" --no-wrap --text="Your Score:{} \nComputer Score:{} "'.format(player_wins,comp_wins))        
+
+		x=os.system('zenity --question --text="Do you want to play again? (y/n)" --ok-label="YES" --cancel-label="NO"')         
+	
+		if x==256:
+			break
+
+
+
+
+
+
+
+def guessNumber():
+	guess = 0
+	r = random.randint(0,99)
+	while True:
+		guess +=1
+		y=subprocess.getstatusoutput('zenity --entry  --text="Guess number between 0 to 99 " 2>/dev/null')
+		n= int(y[1])
+		if int(n)>=0 and int(n)<=99:
+			if r>n:
+				os.system('zenity --info --no-wrap --text="You guessed small"')
+				
+			elif r<n:
+				os.system('zenity --info --no-wrap --text="You guessed high"')
+				
+			else:
+				os.system('zenity --info --no-wrap --text="You guessed correct"')
+				
+				os.system('zenity --info --no-wrap --text="Your guesses are {} "'.format(guess))
+				
+				break	
+		else:
+			os.system('zenity --info --no-wrap --text="wrong input"')
+
+def launch_Container():
+		ans = os.system('zenity --question --no-wrap --text="Do you have a Docker install?"')
+		if ans== 256:
+			os.system('zenity --info --no-wrap --text="use below command to install docker :\n yum install docker-ce" ')
+		else:
+			os.system('docker run -it centos')
+
+
+
+
+os.system('zenity --info --title="welcome" --no-wrap  --text="welcome to my menu"')
+
+
+x= os.system('zenity --question --text="where u want to run ur program local/remote:" --no-wrap --ok-label="local" --cancel-label="remote"')
+print(x)
+if x == 256 :
+	x = "remote"
+else:
+	
+	x = "local"
+
+
+myhost = x
+print(myhost)
+if myhost =="remote":
+	remote_ip=subprocess.getoutput('zenity --entry --title=remote --text="Enter ur remote host ip:"')
+
+while True:
+	y=subprocess.getstatusoutput('zenity --entry --title="enter your choice" --text="Enter 1 : for fun\nEnter 2 : Mail Service \nEnter 3 : To read story \nEnter 4 : To see fibonacci series\nEnter 5 : To play Quiz \nEnter 6 : To play game \nEnter 7 : To Play Guess the Number game\nEnter 8: To launch a container\nEnter 9 : Exit" 2>/dev/null')
+	y1 = int(y[1])
+	
+	ch = y1
+	if myhost=="local":
+		if  int(ch) ==1:
+			Fun_Arena()
+		elif int(ch) ==2:
+			Mail_Services()
+		elif int(ch) ==3:
+			os.system('zenity --info --no-wrap --text={} --title="story" 2>dev/null'.format(Story_Telling()))
+		elif int(ch)==4:
+			os.system('zenity --info --no-wrap --text="{}" --title="Fibonacci series"  2>/dev/null'.format(Fibonacci_Series()))
+		elif int(ch)==5:
+			Quiz()			
+		elif int(ch) ==6:
+			RockPaperScissor_Game()
+		elif int(ch) ==7:
+			guessNumber()
+		elif int(ch) ==8:
+			launch_Container()
+		elif int(ch) ==9:
+			exit()
+		else:
+			print("not supported")		
+			
+	if myhost=="remote":
+		if  ch == 1:
+			os.system("ssh {} date".format(remote_ip))
+		elif int(ch) ==2:
+			os.system("ssh {} cal".format(remote_ip))
+		elif int(ch) ==3:
+			os.system("ssh {} mkdir".format(remote_ip))
+		elif int(ch) ==4:
 			os.system("ssh {} exit".format(remote_ip))
 		else:
 			print("not supported")
